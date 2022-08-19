@@ -2,7 +2,7 @@ import { Movie } from '../models/Movie';
 import { Service } from 'typedi';
 import { Identifier, Op } from 'sequelize';
 import { Actor } from '../models/Actor';
-import { MovieActors } from '../models/MovieActors';
+
 @Service()
 export default class MovieRepository {
   createMovie = async (title: string, description: string, rating?: number): Promise<Movie> => {
@@ -11,7 +11,7 @@ export default class MovieRepository {
   };
 
   getAllMovies = async (): Promise<Movie[]> => {
-    return await Movie.findAll();
+    return await Movie.findAll({ include: Actor });
   };
 
   getPaginatedMovies = async (limit: number, offset: number): Promise<Movie[]> => {
@@ -33,7 +33,7 @@ export default class MovieRepository {
     console.log(movieResult);
     const actorResult = await actor.$add('movies', movie, { through: { characterName } });
     console.log(actorResult);
-    const result = await MovieActors.findOne({where: { movieId: movie.id }});
+    const result = await Movie.findOne({where: { id: movie.id }, include: Actor });
     return result;
   }
 }
