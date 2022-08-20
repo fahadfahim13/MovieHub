@@ -3,6 +3,7 @@ import React from 'react';
 import ProductsContainer from 'uicontainers/ProductsContainer';
 import CartContainer from 'uicontainers/CartContainer';
 import useCartOptions from './hooks';
+import Banner from 'components/Banner';
 
 const Home = () => {
   const { openCart, handleAddtoCart, handleCloseCart } = useCartOptions();
@@ -10,6 +11,7 @@ const Home = () => {
   return (
     <>
       {/* Banner */}
+      <Banner />
       {/* Movie List top 6 */}
       {/* Footer */}
       {/* ProductCards List */}
