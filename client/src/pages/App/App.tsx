@@ -10,13 +10,14 @@ import Footer from 'uicontainers/layout/Footer';
 import Header from 'uicontainers/layout/Header';
 import { ArrowUp } from '@styled-icons/bootstrap';
 import styles from './App.module.css';
+import MovieLists from 'pages/MovieLists';
 
 const App = () => {
   return (
-    <Layout>
+    <Layout style={{minHeight: '90vh'}}>
 
       <Header />
-      <Layout style={{ display: 'flex', flexDirection: 'column' }}>
+      <Layout style={{ display: 'flex', flexDirection: 'column', minHeight: '90vh' }}>
         <Layout>
         <Content>
           <BackTop >
@@ -25,6 +26,7 @@ const App = () => {
           <Routes>
             <Route path={ROUTES.PATHS.ROOT} element={<Home />} />
             <Route path={ROUTES.PATHS.HOME} element={<Home />} />
+            <Route path={ROUTES.PATHS.LISTS} element={<MovieLists />} />
           </Routes>
         </Content>
         </Layout>
