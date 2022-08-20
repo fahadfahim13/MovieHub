@@ -5,3 +5,16 @@
     padding: 1% 2%;
     border: 1px solid #ccc;
 }
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.viewButton {
+    width: 286px;
+    height: 70px;
+    background: #E5E5E5;
+    border-radius: 5px;
+}

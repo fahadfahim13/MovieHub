@@ -7,10 +7,10 @@ import styles from './Header.module.css';
 export const Header = () => {
   return (
     <Layout.Header className={styles.headerStyle}>
-      <img className={styles.headerLogo} src={logo} alt='Movies'/> 
+      <img className={styles.headerLogo} src={logo} alt='Movies' /> 
       <p className={styles.headerText}> MOVIES </p>
     </Layout.Header>
-  );
+    );
 };
 
 export default Header;

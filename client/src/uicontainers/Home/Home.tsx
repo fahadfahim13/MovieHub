@@ -1,24 +1,23 @@
 import React from 'react';
-
-import ProductsContainer from 'uicontainers/ProductsContainer';
-import CartContainer from 'uicontainers/CartContainer';
-import useCartOptions from './hooks';
+import { Button } from 'antd';
 import Banner from 'components/Banner';
+import MovieList from 'components/MovieList';
+import styles from './Home.module.scss';
 
 const Home = () => {
-  const { openCart, handleAddtoCart, handleCloseCart } = useCartOptions();
-
   return (
-    <>
+    <div>
       {/* Banner */}
       <Banner />
       {/* Movie List top 6 */}
-      {/* Footer */}
-      {/* ProductCards List */}
-      <ProductsContainer handleAddtoCart={handleAddtoCart} />
-      {/* Shopping Cart */}
-      <CartContainer open={openCart} onclose={handleCloseCart} />
-    </>
+      <div>
+        <MovieList />
+      </div>
+      {/* View All Button */}
+      <div className={styles.buttonContainer}>
+        <Button className={styles.viewButton}>VIEW ALL</Button>
+      </div>
+    </div>
   );
 };
 
