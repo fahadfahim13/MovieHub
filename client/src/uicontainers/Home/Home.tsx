@@ -9,9 +9,9 @@ const Home = () => {
 
   return (
     <>
-    {/* Banner */}
-    {/* Movie List top 6 */}
-    {/* Footer */}
+      {/* Banner */}
+      {/* Movie List top 6 */}
+      {/* Footer */}
       {/* ProductCards List */}
       <ProductsContainer handleAddtoCart={handleAddtoCart} />
       {/* Shopping Cart */}

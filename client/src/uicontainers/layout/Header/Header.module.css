@@ -1,12 +1,29 @@
 .headerStyle {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  background: linear-gradient(107.56deg, #306099 0%, #58B368 100%);
 }
 
 .headerLogo {
   display: flex;
   align-items: center;
-  width: 20%;
+  width: 30px;
+  max-height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10%;
+}
+
+.headerText {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 42px;
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1%;
 }
 
 .site-layout-content {
@@ -19,7 +36,7 @@
   width: 120px;
   height: 31px;
   margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(107.56deg, #306099 0%, #58B368 100%);
 }
 .ant-row-rtl #components-layout-demo-top .logo {
   float: right;
