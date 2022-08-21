@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchMovieAsync, fetchMovieTotalAsync} from './thunks';
+import { fetchMovieAsync, fetchMovieTotalAsync, searchMovieAsync} from './thunks';
 import { MoviesState } from './types';
 
 const initialState: MoviesState = {
   data: [],
   status: 'idle',
-  total: 0
+  total: 0,
+  searchStatus: 'idle',
+  searchResults: []
 };
 
 export const movieSlice = createSlice({
@@ -36,6 +38,13 @@ export const movieSlice = createSlice({
       })
       .addCase(fetchMovieTotalAsync.fulfilled, (state, action) => {
         state.total = action.payload;
+      })
+      .addCase(searchMovieAsync.pending, (state) => {
+        state.searchStatus = 'pending';
+      })
+      .addCase(searchMovieAsync.fulfilled, (state, action) => {
+        state.searchStatus = 'idle';
+        state.searchResults = action.payload.data;
       })
   },
 });
