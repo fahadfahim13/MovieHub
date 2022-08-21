@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchMovieAsync} from './thunks';
+import { fetchMovieAsync, fetchMovieTotalAsync} from './thunks';
 import { MoviesState } from './types';
 
 const initialState: MoviesState = {
   data: [],
   status: 'idle',
+  total: 0
 };
 
 export const movieSlice = createSlice({
@@ -14,8 +15,9 @@ export const movieSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     resetMovies: (state) => {
-        state.data = []
-        state.status = 'idle'
+        state.data = [];
+        state.status = 'idle';
+        state.total = 0;
       }
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -28,6 +30,12 @@ export const movieSlice = createSlice({
       .addCase(fetchMovieAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.data = action.payload.data;
+      })
+      .addCase(fetchMovieTotalAsync.pending, (state) => {
+        state.total = 0;
+      })
+      .addCase(fetchMovieTotalAsync.fulfilled, (state, action) => {
+        state.total = action.payload;
       })
   },
 });

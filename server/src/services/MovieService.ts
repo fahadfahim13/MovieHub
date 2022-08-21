@@ -22,6 +22,11 @@ export default class MovieService {
     return result;
   };
 
+  getTotalMovieCount = async () => {
+    const result = await this.movieRepository.getTotalMovies();
+    return result;
+  };
+
   searchMovie = async (title: string) => {
     this.logger.info(`Searching for movies with title like: ${title}.`);
     const result = await this.movieRepository.findByTitle(title);

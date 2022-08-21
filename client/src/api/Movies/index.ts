@@ -5,3 +5,8 @@ export const fetchMovies = async (limit = 6, offset = 0) => {
   const result = await axios.post(API_ROUTES.MOVIES.LIST, { limit, offset });
   return result.data;
 }
+
+export const fetchMovieCount = async () => {
+    const result = await axios.get(API_ROUTES.MOVIES.COUNT);
+    return result.data;
+  }

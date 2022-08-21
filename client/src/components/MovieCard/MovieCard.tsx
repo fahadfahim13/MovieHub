@@ -21,10 +21,10 @@ const MovieCard = (movie: MovieProps) => {
           {description}
         </Typography>
       </CardContent>
-      <CardActions>
+      {showActor && <CardActions>
         <ActorItem />
         <ActorItem />
-      </CardActions>
+      </CardActions>}
     </Card>
   )
 }

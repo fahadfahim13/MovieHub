@@ -38,6 +38,11 @@ export default class MovieController {
     return new SuccessResponse(response);
   });
 
+  getTotalMovieCount = asyncWrapper(async () => {
+    const response = await this.movieService.getTotalMovieCount();
+    return new SuccessResponse(response);
+  });
+
   addActorToMovie = asyncWrapper(async (req: Request) => {
     const { movieId, actorId, characterName } = req.body;
     const result = await this.movieService.addActorToMovie(movieId, actorId, characterName);

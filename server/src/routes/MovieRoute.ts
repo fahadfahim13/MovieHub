@@ -10,6 +10,7 @@ const router = express.Router();
 const movieController = Container.get(MovieController);
 
 router.post('/create', RequestValidator.validate(MovieCreateRequest), movieController.createMovie);
+router.get('/count', movieController.getTotalMovieCount);
 router.post('/list', RequestValidator.validate(GETMovieListRequest), movieController.getMovieList);
 router.post('/details', RequestValidator.validate(GETMovieDetailsRequest), movieController.getMovieDetails);
 router.post('/search', RequestValidator.validate(SearchMoviesRequest), movieController.searchMovies);

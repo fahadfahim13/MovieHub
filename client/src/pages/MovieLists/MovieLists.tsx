@@ -4,7 +4,7 @@ import MovieListContainer from 'uicontainers/MovieListContainer'
 const MovieLists = () => {
   return (
     <div>
-        <MovieListContainer />
+      <MovieListContainer />
     </div>
   )
 }
