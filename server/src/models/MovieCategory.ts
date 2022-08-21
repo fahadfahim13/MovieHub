@@ -1,12 +1,12 @@
 import { Table, Model, Column, DataType, ForeignKey } from 'sequelize-typescript';
-import { Actor } from './Actor';
+import { Category } from './Category';
 import { Movie } from './Movie';
 
 @Table({
   timestamps: false,
-  tableName: 'movie_actors',
+  tableName: 'movie_categories',
 })
-export class MovieActors extends Model {
+export class MovieCategories extends Model {
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -17,7 +17,7 @@ export class MovieActors extends Model {
   @Column
   movieId: number;
 
-  @ForeignKey(() => Actor)
+  @ForeignKey(() => Category)
   @Column
-  actorId: number;
+  categoryId: number;
 }

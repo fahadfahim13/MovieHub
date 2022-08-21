@@ -2,6 +2,7 @@ import { Movie } from '../models/Movie';
 import { Service } from 'typedi';
 import { Identifier, Op } from 'sequelize';
 import { Actor } from '../models/Actor';
+import { Category } from '../models/Category';
 
 @Service()
 export default class MovieRepository {
@@ -39,6 +40,13 @@ export default class MovieRepository {
     const actorResult = await actor.$add('movies', movie, { through: { characterName } });
     console.log(actorResult);
     const result = await Movie.findOne({where: { id: movie.id }, include: Actor });
+    return result;
+  }
+
+  addCategoryToMovie = async(movie: Movie, category: Category) => {
+    await movie.$add('categories', category);
+    await category.$add('movies', movie);
+    const result = await Movie.findOne({where: { id: movie.id }, include: [Actor, Category] });
     return result;
   }
 }

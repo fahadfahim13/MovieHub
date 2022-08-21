@@ -2,6 +2,7 @@ import { Table, Model, Column, DataType, BelongsToMany } from 'sequelize-typescr
 import { Actor } from './Actor';
 import { Category } from './Category';
 import { MovieActors } from './MovieActors';
+import { MovieCategories } from './MovieCategory';
 
 @Table({
   timestamps: false,
@@ -31,6 +32,6 @@ export class Movie extends Model {
   @BelongsToMany(() => Actor, () => MovieActors)
   actors: MovieActors[];
 
-  // @BelongsToMany(() => Category)
-  // categories: Category[];
+  @BelongsToMany(() => Category,  () => MovieCategories)
+  categories: Category[];
 }
