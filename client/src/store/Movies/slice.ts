@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Movie } from 'components/MovieCard/types';
 
 import { fetchMovieAsync, fetchMovieTotalAsync, searchMovieAsync} from './thunks';
 import { MoviesState } from './types';
@@ -8,7 +9,8 @@ const initialState: MoviesState = {
   status: 'idle',
   total: 0,
   searchStatus: 'idle',
-  searchResults: []
+  searchResults: [],
+  selectedMovie: null
 };
 
 export const movieSlice = createSlice({
@@ -20,6 +22,9 @@ export const movieSlice = createSlice({
         state.data = [];
         state.status = 'idle';
         state.total = 0;
+      },
+      selectMovieForDisplay: (state, action: PayloadAction<Movie>) => {
+        state.selectedMovie = action.payload;
       }
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -44,7 +49,7 @@ export const movieSlice = createSlice({
       })
       .addCase(searchMovieAsync.fulfilled, (state, action) => {
         state.searchStatus = 'idle';
-        state.searchResults = action.payload.data;
+        state.data = action.payload.data;
       })
   },
 });

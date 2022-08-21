@@ -1,4 +1,4 @@
 import movieSlice from './slice';
 
-const { resetMovies } = movieSlice.actions;
-export { resetMovies };
+const { resetMovies, selectMovieForDisplay } = movieSlice.actions;
+export { resetMovies, selectMovieForDisplay };

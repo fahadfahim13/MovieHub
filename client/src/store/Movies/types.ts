@@ -6,6 +6,7 @@ export interface MoviesState {
   total: number;
   searchStatus: 'idle' | 'pending' | 'success' | 'rejected';
   searchResults: Movie[];
+  selectedMovie: Movie | null;
 }
 
 export interface MovieUpdateAction {

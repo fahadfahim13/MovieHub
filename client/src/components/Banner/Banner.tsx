@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paper } from '@mui/material'
 import banner from 'media/images/banner.png';
 
 const Banner = () => {
@@ -8,4 +7,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner;

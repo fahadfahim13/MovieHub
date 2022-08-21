@@ -6,14 +6,13 @@ import styles from './Home.module.scss';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'shared/routes/constants';
 import { useAppDispatch } from 'store/hooks';
-import { fetchMovieAsync, fetchMovieTotalAsync } from 'store/Movies/thunks';
+import { fetchMovieAsync } from 'store/Movies/thunks';
 
 const Home = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchMovieAsync({ limit: 6, offset: 0 }));
-    dispatch(fetchMovieTotalAsync());
   }, []);
 
   return (
