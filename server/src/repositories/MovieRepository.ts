@@ -11,11 +11,11 @@ export default class MovieRepository {
   };
 
   getAllMovies = async (): Promise<Movie[]> => {
-    return await Movie.findAll({ include: Actor });
+    return await Movie.findAll({ include: Actor, order: [['id', 'ASC']] });
   };
 
   getPaginatedMovies = async (limit: number, offset: number): Promise<Movie[]> => {
-    return await Movie.findAll({ limit, offset, order: [['rating', 'DESC']] });
+    return await Movie.findAll({ limit, offset, include: Actor, order: [['id', 'ASC']] });
   };
 
   getMovieDetails = async (id: Identifier): Promise<Movie | null> => {
@@ -24,7 +24,7 @@ export default class MovieRepository {
   };
 
   findByTitle = async (title: string): Promise<Movie[]> => {
-    const result = await Movie.findAll({ where: { title: { [Op.iLike]: `%${title}%` } } });
+    const result = await Movie.findAll({ where: { title: { [Op.iLike]: `%${title}%` } }, order: [['id', 'ASC']] });
     return result;
   };
 

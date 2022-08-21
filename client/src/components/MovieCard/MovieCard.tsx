@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, Button } from '@mui/material';
 import { MovieProps } from './types';
+import ActorItem from 'components/ActorItem';
 
 
 const MovieCard = (movie: MovieProps) => {
@@ -21,8 +22,8 @@ const MovieCard = (movie: MovieProps) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <ActorItem />
+        <ActorItem />
       </CardActions>
     </Card>
   )

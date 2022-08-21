@@ -1,8 +1,11 @@
-export interface MovieProps {
+export interface Movie {
     id: number;
     title: string;
     description: string;
     image: string;
-    showActor?: boolean;
     actors: [];
+}
+
+export interface MovieProps extends Movie {
+    showActor?: boolean;
 }
