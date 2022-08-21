@@ -9,7 +9,6 @@ export class ActorCreateRequest {
     image: string;
 }
 
-
 export class ActorUpdateRequest {
     @IsNotEmpty()
     @IsNumber()

@@ -7,10 +7,11 @@ import { ROUTES } from 'shared/routes/constants';
 import { Movie } from 'components/MovieCard/types';
 import { selectMovies } from 'store/Movies/selectors';
 
-const MovieList = ({ showActor = false }) => {
+const MovieList = (props: { showActor: boolean }) => {
   const dispatch = useAppDispatch();
   const movies = useAppSelector(selectMovies);
   const navigate = useNavigate();
+  const { showActor } = props;
 
   const selectMovieForDetails = (movie: Movie) => {
     dispatch(selectMovieForDisplay(movie));
@@ -21,7 +22,7 @@ const MovieList = ({ showActor = false }) => {
     <div style={{ marginBottom: '3%', width: '100%', display: 'inline-block', paddingLeft: '23%', paddingRight: '15%' }}>
     {movies.map((movie, index) => 
       <section style={{width: '30%', float: 'left', padding: '20px'}} onClick={() => selectMovieForDetails(movie)}>
-        <MovieCard id={index} title={movie.title} description={movie.description} actors={[]} showActor={showActor} image={movie.image} />
+        <MovieCard id={index} title={movie.title} description={movie.description} actors={movie.actors} showActor={showActor} image={movie.image} />
       </section>
     )}
     </div>

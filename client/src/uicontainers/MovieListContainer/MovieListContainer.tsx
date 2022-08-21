@@ -10,7 +10,7 @@ const MovieListContainer = () => {
   const dispatch = useAppDispatch();
   const totalMovies = useAppSelector(selectMoviesCount);
 
-  const [state, setstate] = useState({ limit: 9, offset: 0 })
+  const [state, setstate] = useState({ limit: 9, offset: 0 });
 
   useEffect(() => {
     dispatch(fetchMovieAsync({ limit: state.limit, offset: state.offset }));
@@ -19,7 +19,7 @@ const MovieListContainer = () => {
   const onPageChange = (event: ChangeEvent<unknown>, page: number) => {
     setstate({
       ...state,
-      offset: (page - 1) * 9,
+      offset: (page - 1) * 9
     })
   };
 
