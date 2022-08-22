@@ -21,7 +21,7 @@ const MovieCard = (movie: MovieProps) => {
           {description}
         </Typography>
       </CardContent>
-      {showActor? <CardActions>
+      {(showActor && actors)? <CardActions>
         {(actors.length > 0 && actors[0])? <ActorItem actorName={actors[0].name} characterName={actors[0].MovieActors.characterName} /> : ''}
         {(actors.length > 1 && actors[1])? <ActorItem actorName={actors[1].name} characterName={actors[1].MovieActors.characterName} /> : ''}
       </CardActions>: null}

@@ -13,9 +13,7 @@ const MovieDetails = () => {
       <MovieBanner />
       <p className={styles.movieName}>Movie information hub</p>
       <Row>
-        <Col className={styles.movieCategory}>Category</Col>
-        <Col className={styles.movieCategory}>Category</Col>
-        <Col className={styles.movieCategory}>Category</Col>
+        {movie?.categories.map((cat) => <Col className={styles.movieCategory}>{cat.name}</Col>)}
       </Row>
 
       <p style={{ marginTop: '1%' }}>{movie?.description}</p>
