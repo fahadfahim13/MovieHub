@@ -6,37 +6,6 @@
   <h2 align="center"> Movie hub application </h2>
 </div>
 
-## About The Project
-
-There are a lot of section that goes into creating a production grade NodeJS application. In this repository I tried to gather as much as possible. This is an ExpressJS application with the following features.
-
-- Typescript all the way
-- EsLint, Prettier and Husky integration
-- Docker
-- Sequelize integration
-- Multiple Environments
-- Logging
-- Error handling in a central place
-- Request Validation
-- Swagger API documentation
-- Dependency Injection
-- Setting up Testing
-
-Let me know what else can make this repo even better
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Technologies
-
-The major technologies that were used to build this project are:
-
-- [NodeJS](https://nodejs.org/en/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Sequelize](https://sequelize.org/)
-- [Docker](https://www.docker.com/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Getting Started
 
 Here goes the instructions to get the project up and running.
@@ -48,6 +17,14 @@ To run this project You will need the following things installed on your machine
 - NodeJS
 - NPM
 - Docker (Optional)
+
+### Install Packages
+
+```bash
+npm install
+```
+
+## Ruun the Backend
 
 ### Run with Docker
 
@@ -93,21 +70,38 @@ DB_PASSWORD=dbpassword
 dbClient = await connection.sync();
 ```
 
-## Project Structure
+## Run the Frontend
 
-If you want to add a new route then you will goto `/routes` folder and add a new Router.
-Then register that router in the `index.ts` file under the `/routes` folder.
+### Prerequisites
 
-Then you will create a Controller under the `/controllers` directory.All business logics should go into there.
+Install `nvm`:
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+ 
+Install the latest LTS `node`: (for example)
+```bash
+nvm install v14.16.1
+source ~/.bashrc
+```
 
-Specific use cases should be handles by Service classes under the `/service` folder.
+Install `yarn` globally:
+```bash
+npm install -g yarn
+```
 
-All Database related things should go under `/repositories` folder.
+### Install Packages
 
-To create a new model for data base look into the `/models` folder.
+```bash
+yarn install
+```
 
-## License
+In the project directory, you can run:
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+#### `yarn start`
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
