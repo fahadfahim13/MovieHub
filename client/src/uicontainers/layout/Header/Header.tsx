@@ -12,12 +12,15 @@ export const Header = () => {
 
   const goToHome = () => {
     navigate(ROUTES.PATHS.ROOT, { replace: true });
-  }
+  };
 
   return (
     <Layout.Header className={styles.headerStyle}>
-      <img className={styles.headerLogo} src={logo} alt='Movies' onClick={goToHome} /> 
-      <p className={styles.headerText} onClick={goToHome}> MOVIES </p>
+      <img className={styles.headerLogo} src={logo} alt="Movies" onClick={goToHome} />
+      <p className={styles.headerText} onClick={goToHome}>
+        {' '}
+        MOVIES{' '}
+      </p>
       {location.pathname === ROUTES.PATHS.LISTS && <SearchMovieComponent />}
     </Layout.Header>
   );

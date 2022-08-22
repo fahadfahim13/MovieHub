@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import MovieBanner from 'components/MovieBanner';
 import styles from './MovieDetails.module.css';
 import { Col, Row } from 'antd';
@@ -13,14 +13,16 @@ const MovieDetails = () => {
       <MovieBanner />
       <p className={styles.movieName}>Movie information hub</p>
       <Row>
-        {movie?.categories.map((cat) => <Col className={styles.movieCategory}>{cat.name}</Col>)}
+        {movie?.categories.map((cat) => (
+          <Col className={styles.movieCategory}>{cat.name}</Col>
+        ))}
       </Row>
 
       <p style={{ marginTop: '1%' }}>{movie?.description}</p>
       <p className={styles.castText}>Cast</p>
       {movie && <CastActorsList {...movie} />}
     </div>
-  )
-}
+  );
+};
 
 export default MovieDetails;
