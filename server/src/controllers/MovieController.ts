@@ -48,4 +48,10 @@ export default class MovieController {
     const result = await this.movieService.addActorToMovie(movieId, actorId, characterName);
     return new SuccessResponse(result);
   });
+
+  addCategoryToMovie = asyncWrapper(async (req: Request) => {
+    const { movieId, categoryId } = req.body;
+    const result = await this.movieService.addCategoryToMovie(movieId, categoryId);
+    return new SuccessResponse(result);
+  });
 }

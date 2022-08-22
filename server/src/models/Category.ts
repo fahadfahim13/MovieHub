@@ -1,6 +1,6 @@
 import { Table, Model, Column, DataType, BelongsToMany } from 'sequelize-typescript';
 import { Movie } from './Movie';
-import { MovieCategories } from './MovieCategory';
+import { MovieCategories } from './MovieCategories';
 
 @Table({
   timestamps: false,
@@ -14,5 +14,5 @@ export class Category extends Model {
   name!: string;
 
   @BelongsToMany(() => Movie, () => MovieCategories)
-  movies: Movie[]
+  movies: MovieCategories[]
 }

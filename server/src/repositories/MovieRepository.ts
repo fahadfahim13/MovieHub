@@ -12,7 +12,7 @@ export default class MovieRepository {
   };
 
   getAllMovies = async (): Promise<Movie[]> => {
-    return await Movie.findAll({ include: Actor, order: [['id', 'ASC']] });
+    return await Movie.findAll({ include: [Actor, Category], order: [['id', 'ASC']] });
   };
 
   getTotalMovies = async (): Promise<number> => {
@@ -21,7 +21,7 @@ export default class MovieRepository {
   };
 
   getPaginatedMovies = async (limit: number, offset: number): Promise<Movie[]> => {
-    return await Movie.findAll({ limit, offset, include: Actor, order: [['id', 'ASC']] });
+    return await Movie.findAll({ limit, offset, include: [Actor, Category], order: [['id', 'ASC']] });
   };
 
   getMovieDetails = async (id: Identifier): Promise<Movie | null> => {

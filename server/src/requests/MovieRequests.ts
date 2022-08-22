@@ -49,3 +49,14 @@ export class AddActorToMovieRequest {
     @IsString()
     characterName: string;
 }
+
+
+export class AddCategoryToMovieRequest {
+  @IsNotEmpty()
+  @IsNumber()
+  movieId: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  categoryId: number;
+}

@@ -2,14 +2,16 @@ import { ApplicationError } from '../utils/ApiError';
 import { Service } from 'typedi';
 import MovieRepository from '../repositories/MovieRepository';
 import ActorRepository from '../repositories/ActorRepository';
+import CategoryRepository from '../repositories/CategoryRepository';
 import { LoggerClient } from './LoggerClient';
 import { Movie } from '../models/Movie';
 import { Identifier } from 'sequelize/types';
 import { Actor } from '../models/Actor';
+import { Category } from '../models/Category';
 
 @Service()
 export default class MovieService {
-  constructor(public movieRepository: MovieRepository, public actorService: ActorRepository, public logger: LoggerClient) {}
+  constructor(public movieRepository: MovieRepository, public actorService: ActorRepository, public categoryService: CategoryRepository, public logger: LoggerClient) {}
 
   createMovie = async (title: string, description: string, rating?: number) => {
     this.logger.info(`Request for a movie creation with title: ${title}, description: ${description}.`);
@@ -56,6 +58,19 @@ export default class MovieService {
         throw new ApplicationError('No Actor found with this id');
     }
     const result = await this.movieRepository.addActorToMovie(movie, actor, characterName);
+    return result;
+  };
+
+  addCategoryToMovie = async (movieId: Identifier, categoryId: Identifier) => {
+    const movie: Movie | null = await this.movieRepository.getMovieDetails(movieId);
+    if(!movie){
+        throw new ApplicationError('No Movie found with this id');
+    }
+    const category: Category | null = await this.categoryService.getCategoryDetails(categoryId);
+    if(!category){
+        throw new ApplicationError('No Category found with this id');
+    }
+    const result = await this.movieRepository.addCategoryToMovie(movie, category);
     return result;
   };
 }

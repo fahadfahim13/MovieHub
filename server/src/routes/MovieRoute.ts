@@ -1,5 +1,5 @@
 import express from 'express';
-import { MovieCreateRequest, GETMovieListRequest, GETMovieDetailsRequest, SearchMoviesRequest, AddActorToMovieRequest } from '../requests/MovieRequests';
+import { MovieCreateRequest, GETMovieListRequest, GETMovieDetailsRequest, SearchMoviesRequest, AddActorToMovieRequest, AddCategoryToMovieRequest } from '../requests/MovieRequests';
 import RequestValidator from '../middlewares/RequestValidator';
 import { Container } from 'typedi';
 import MovieController from '../controllers/MovieController';
@@ -15,6 +15,7 @@ router.post('/list', RequestValidator.validate(GETMovieListRequest), movieContro
 router.post('/details', RequestValidator.validate(GETMovieDetailsRequest), movieController.getMovieDetails);
 router.post('/search', RequestValidator.validate(SearchMoviesRequest), movieController.searchMovies);
 router.post('/add-actor', RequestValidator.validate(AddActorToMovieRequest), movieController.addActorToMovie);
+router.post('/add-category', RequestValidator.validate(AddCategoryToMovieRequest), movieController.addCategoryToMovie);
 router.get('/all', movieController.getAllMovies);
 
 export default router;

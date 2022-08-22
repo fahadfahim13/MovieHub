@@ -2,6 +2,7 @@ import express from 'express';
 import authRoute from './AuthRoute';
 import movieRoute from './MovieRoute';
 import actorRoute from './ActorRoutes';
+import categoryRoutes from './CategoryRoutes';
 
 const router = express.Router();
 
@@ -17,6 +18,10 @@ const allRoutes = [
   {
     path: '/actors',
     route: actorRoute,
+  },
+  {
+    path: '/categories',
+    route: categoryRoutes,
   },
 ];
 
